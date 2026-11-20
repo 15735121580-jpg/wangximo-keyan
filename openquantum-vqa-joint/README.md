@@ -25,3 +25,5 @@ cp /path/to/repository/openquantum-vqa-joint/validation/{contract.json,result.js
 ```
 
 The original Skill and compiler code are distributed under the MIT License. The bundled ZAC architecture retains its [upstream licence](../.agents/skills/vqa-joint-compilation/assets/native/src/vqa_joint/packaging/ZAC-LICENSE.txt).
+
+For natural-language input, run the [model-to-compiler harness](harness/README.md).

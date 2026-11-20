@@ -1,0 +1,185 @@
+{
+  "type": "object",
+  "properties": {
+    "state": {
+      "type": "string",
+      "enum": [
+        "ready",
+        "needs_input"
+      ]
+    },
+    "contract": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "task": {
+              "type": "string",
+              "enum": [
+                "two-round-feedback-vqe"
+              ]
+            },
+            "hardware": {
+              "type": "object",
+              "properties": {
+                "data_species": {
+                  "type": "string",
+                  "enum": [
+                    "Cs",
+                    "Rb"
+                  ]
+                },
+                "service_species": {
+                  "type": "string",
+                  "enum": [
+                    "Cs",
+                    "Rb"
+                  ]
+                },
+                "time_unit": {
+                  "type": "string",
+                  "enum": [
+                    "us"
+                  ]
+                },
+                "evidence": {
+                  "type": "string",
+                  "enum": [
+                    "synthetic",
+                    "simulator",
+                    "supplied-calibration"
+                  ]
+                },
+                "source": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "data_species",
+                "service_species",
+                "time_unit",
+                "evidence",
+                "source"
+              ],
+              "additionalProperties": false
+            },
+            "limits": {
+              "type": "object",
+              "properties": {
+                "max_peak_atoms": {
+                  "type": "integer"
+                },
+                "max_depth": {
+                  "type": "integer"
+                },
+                "max_model_flip_probability": {
+                  "type": "string"
+                },
+                "min_record_fidelity": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "max_peak_atoms",
+                "max_depth",
+                "max_model_flip_probability",
+                "min_record_fidelity"
+              ],
+              "additionalProperties": false
+            },
+            "architectures": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "prefix_us": {
+                    "type": "string"
+                  },
+                  "suffix_us": {
+                    "type": "object",
+                    "properties": {
+                      "+": {
+                        "type": "string"
+                      },
+                      "-": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "+",
+                      "-"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "flip_per_readout": {
+                    "type": "string"
+                  },
+                  "peak_atoms_by_species": {
+                    "type": "object",
+                    "properties": {
+                      "Cs": {
+                        "type": "integer"
+                      },
+                      "Rb": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "Cs",
+                      "Rb"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "max_branch_depth": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id",
+                  "prefix_us",
+                  "suffix_us",
+                  "flip_per_readout",
+                  "peak_atoms_by_species",
+                  "max_branch_depth"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "task",
+            "hardware",
+            "limits",
+            "architectures"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "missing_or_incompatible": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "seed": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "state",
+    "contract",
+    "missing_or_incompatible",
+    "seed"
+  ],
+  "additionalProperties": false
+}

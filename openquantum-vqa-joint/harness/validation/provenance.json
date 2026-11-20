@@ -1,0 +1,7 @@
+{
+  "model": "gpt-6.1-sol",
+  "intent_sha256": "be56c541fdd529cb3b590bd719fa96e7385d591d9c0d488f824b30bd334e6306",
+  "compiler_sha256": "c8ffcef21ba5d52692ce0c1a19f198964d0006417446584ec60441e1c6c07338",
+  "memory_disabled": true,
+  "source": "model extraction under a fixed output schema"
+}

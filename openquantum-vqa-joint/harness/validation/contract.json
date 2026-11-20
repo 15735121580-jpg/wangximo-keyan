@@ -1,0 +1,46 @@
+{
+  "task": "two-round-feedback-vqe",
+  "hardware": {
+    "data_species": "Cs",
+    "service_species": "Rb",
+    "time_unit": "us",
+    "evidence": "synthetic",
+    "source": "\u7528\u6237\u63d0\u4f9b\u7684\u4f9b\u9a8c\u6536\u5408\u6210\u6a21\u578b"
+  },
+  "limits": {
+    "max_peak_atoms": 10,
+    "max_depth": 13,
+    "max_model_flip_probability": "1/5",
+    "min_record_fidelity": "99/100"
+  },
+  "architectures": [
+    {
+      "id": "forward-chain",
+      "prefix_us": "3.5",
+      "suffix_us": {
+        "+": "7",
+        "-": "4"
+      },
+      "flip_per_readout": "1/10",
+      "peak_atoms_by_species": {
+        "Cs": 5,
+        "Rb": 5
+      },
+      "max_branch_depth": 13
+    },
+    {
+      "id": "branch-local",
+      "prefix_us": "4",
+      "suffix_us": {
+        "+": "4",
+        "-": "5"
+      },
+      "flip_per_readout": "1/10",
+      "peak_atoms_by_species": {
+        "Cs": 4,
+        "Rb": 4
+      },
+      "max_branch_depth": 12
+    }
+  ]
+}
