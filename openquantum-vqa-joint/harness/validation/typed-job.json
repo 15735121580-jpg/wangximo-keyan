@@ -1,0 +1,16 @@
+{
+  "mode": "finite",
+  "task": "Two-branch synthetic feedback job on a shared task interface",
+  "input_port": "register", "output_port": "answer", "time_unit": "us",
+  "policies": [
+    {"name": "serial", "controls": {}, "root": "prepare", "residuals": [],
+     "nodes": [{"id": "prepare", "input": "register", "output": "answer", "duration": 10, "outcomes": {}}]},
+    {"name": "deferred", "controls": {"x": [0, 2]}, "root": "probe", "residuals": [["-", "1/4", ["var", "x"]]],
+     "nodes": [
+       {"id": "probe", "input": "register", "output": "record", "duration": 2,
+        "outcomes": {"+": ["3/4", "fast"], "-": ["1/4", "slow"]}},
+       {"id": "fast", "input": "record", "output": "answer", "duration": ["+", 4, ["*", ["-", ["var", "x"], 1], ["-", ["var", "x"], 1]]], "outcomes": {}},
+       {"id": "slow", "input": "record", "output": "answer", "duration": 8, "outcomes": {}}
+     ]}
+  ]
+}

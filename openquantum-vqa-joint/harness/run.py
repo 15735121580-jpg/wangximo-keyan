@@ -42,14 +42,36 @@ def extract(intent, directory, model):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("intent", type=Path)
+    parser.add_argument("--structured", action="store_true", help="Run a typed finite, interval or native job JSON directly")
     parser.add_argument("--model", default="gpt-6.1-sol")
     parser.add_argument("--skill", type=Path, default=DEFAULT_SKILL)
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     intent = args.intent.read_text(encoding="utf-8")
-    comparator = (args.skill / "scripts" / "compare_two_species.py").resolve(strict=True)
     directory = args.out.resolve()
     directory.mkdir(parents=True, exist_ok=False)
+    if args.structured:
+        def unique_fields(pairs):
+            obj = dict(pairs)
+            if len(obj) != len(pairs):
+                raise ValueError("Duplicate JSON field in job.")
+            return obj
+
+        try:
+            job = json.loads(intent, object_pairs_hook=unique_fields)
+            if not isinstance(job, dict) or job.get("mode") not in ("finite", "interval", "native"):
+                raise ValueError("Structured mode must be finite, interval or native.")
+            (directory / "job.json").write_text(intent, encoding="utf-8")
+            if job["mode"] == "native":
+                from native_jobs import run_native
+                return run_native(job, args.skill.resolve(strict=True), directory)
+            from typed_jobs import run_typed
+            return run_typed(job, args.skill.resolve(strict=True), directory)
+        except (KeyError, TypeError, ValueError, ZeroDivisionError, OSError) as error:
+            print(f"Job rejected: {error}", file=sys.stderr)
+            return 2
+
+    comparator = (args.skill / "scripts" / "compare_two_species.py").resolve(strict=True)
     parsed = extract(intent, directory, args.model)
     provenance = {
         "model": args.model,

@@ -1,0 +1,37 @@
+--- a/.agents/capability-packages.yml
++++ b/.agents/capability-packages.yml
+@@ -48,6 +48,9 @@
+       checks:
+         - tests/quantum-learning.test.mjs
+         - tests/harness-quantum-learning.test.mjs
++
++  - id: vqa-joint-compilation
++    level: L0
+ 
+   - id: quantum-sdk-advisor
+     level: L0
+--- a/scripts/build-chatgpt.mjs
++++ b/scripts/build-chatgpt.mjs
+@@ -102,6 +102,22 @@
+       await fs.writeFile(path.join(directory, "SKILL.md"), projectSkill(capability, release));
+       await fs.writeFile(path.join(directory, "references/domain.md"), domainReference(capability.skill, capability.id, release.commit));
+       await fs.writeFile(path.join(directory, "references/tools.json"), json(backend.tools.filter((tool) => capability.tools.includes(tool.name))));
++      if (capability.id === "vqa-joint-compilation") {
++        const prefix = `.agents/skills/${capability.id}/`;
++        const tracked = git(root, ["ls-files", "-z", "--", prefix]).split("\0").filter(Boolean);
++        if (!tracked.includes(prefix + "scripts/compare_two_species.py")) throw new Error("Stage the joint compiler sources before packaging");
++        for (const file of tracked) {
++          const relative = file.slice(prefix.length);
++          if (!/^(LICENSE$|assets\/|scripts\/|agents\/|references\/(execution|integration)\.md$)/.test(relative)) continue;
++          if (/\.env(?:\.|$)|\.(?:key|pem)$/.test(relative)) throw new Error("Credential-like source cannot be projected");
++          const source = path.join(root, file), target = path.join(directory, relative);
++          if (!(await fs.lstat(source)).isFile()) throw new Error(`Expected a regular Skill source: ${file}`);
++          await fs.mkdir(path.dirname(target), { recursive: true });
++          await fs.copyFile(source, target);
++        }
++        await fs.appendFile(path.join(directory, "SKILL.md"),
++          "\n## 本机联合编译\n\n通过宿主代码工具按[执行合同](references/execution.md)调用本 Skill 随附的求解器、后端和脚本。先确认输入、单位和固定依赖。双组份反馈 VQE 入口为 `scripts/compare_two_species.py`，离线示例为 `assets/two-species-vqe.json`。在工作区输出计算回执。\n");
++      }
+       if (capability.id === "platform-diagnostics") {
+         await fs.mkdir(path.join(directory, "scripts"), { recursive: true });
+         await fs.copyFile(path.join(root, "runtime/chatgpt/diagnostics-entry.mjs"), path.join(directory, "scripts/diagnostics.mjs"));

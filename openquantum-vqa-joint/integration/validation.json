@@ -1,0 +1,43 @@
+{
+  "upstream": {
+    "repository": "https://github.com/xi-zhao/OpenQuantum",
+    "commit": "41e12b899429d575ae102ccb9b86ef56d03b76c9",
+    "version": "0.8.11",
+    "checkout": "Git sparse checkout of pinned commit, excluding site/, experiments/ and docs/ except required docs/integrations/. Compiler, release scripts, registry, source, tests and packaging inputs were read from the pinned upstream objects. Conformance is the full upstream static declaration audit. Separate upstream test suites are outside this run."
+  },
+  "distribution": "locally built patched Codex plugin",
+  "validation_date": "2026-11-20",
+  "node": "v24.20.0",
+  "python": "Python 3.12.14",
+  "z3": "4.15.4.0",
+  "conformance": {
+    "status": "pass",
+    "package_count": 199,
+    "package": "vqa-joint-compilation",
+    "level": "L0"
+  },
+  "build": {
+    "command": "node scripts/build-codex-plugin.mjs",
+    "skills": 191,
+    "tools": 124,
+    "archive_sha256": "dcaf35a9aaf5e0b0e67d9d7424c41d60ab6e9ab68b7a527c13ffadcb5b969e16",
+    "skill_resource_files_identical": 134,
+    "environment": "Node build/probe dependencies installed at the pinned upstream direct versions used by these commands; upstream script and all provider discovery checks ran without stubs."
+  },
+  "mcp": {
+    "server": "packaged stdio server",
+    "tool": "find_openquantum_skills",
+    "requested_skill": "vqa-joint-compilation",
+    "readiness": "ready",
+    "registration": "available"
+  },
+  "replay": {
+    "source": "projected SKILL files from freshly extracted release ZIP",
+    "contract": "../validation/contract.json",
+    "seed": 27,
+    "result_equal_to": "../validation/result.json",
+    "selected": "branch-local",
+    "expected_us_exact": "83/10",
+    "checked_certificate": true
+  }
+}
