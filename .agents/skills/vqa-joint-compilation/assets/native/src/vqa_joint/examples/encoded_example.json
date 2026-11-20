@@ -1,0 +1,10 @@
+{
+  "host": "ZAC",
+  "task": "steane_grid_vqe",
+  "train_shots_per_basis": 64,
+  "constraints": {
+    "min_application_success": 0.90,
+    "max_peak_atoms": 7,
+    "min_preparation_fidelity": 0.98
+  }
+}

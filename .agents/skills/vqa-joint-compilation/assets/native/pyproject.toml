@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools==81.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vqa-joint"
+version = "0.1.0a5"
+description = "Extract and replay measured neutral-atom circuit strategies on ZAP and ZAC"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3"]
+classifiers = ["Development Status :: 3 - Alpha", "Programming Language :: Python :: 3"]
+
+[project.optional-dependencies]
+synthesis = ["qiskit==2.6.2"]
+
+[tool.setuptools.package-data]
+vqa_joint = ["examples/*.json", "examples/*.py", "encoded_job/*.json",
+             "encoded_job/runs/*/*/*/*.json", "encoded_job/runs/*/*/*/*.qasm",
+             "packaging/*.json", "packaging/*.txt"]
+
+[project.scripts]
+vqa-joint = "vqa_joint.product_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

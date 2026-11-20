@@ -1,0 +1,454 @@
+{
+ "schema_version": 1,
+ "task_contract": "triangle MaxCut adaptive QAOA; return ranked partition; cost=floor(rank/8), partition=7-(rank mod 8)",
+ "stages": [
+  {
+   "id": "circuit",
+   "bindings": [
+    {
+     "id": "0",
+     "width": 3,
+     "operations": [
+      [
+       "h",
+       [
+        0
+       ],
+       null
+      ],
+      [
+       "h",
+       [
+        1
+       ],
+       null
+      ],
+      [
+       "h",
+       [
+        2
+       ],
+       null
+      ],
+      [
+       "rzz",
+       [
+        0,
+        1
+       ],
+       -0.4
+      ],
+      [
+       "rzz",
+       [
+        1,
+        2
+       ],
+       -0.4
+      ],
+      [
+       "rzz",
+       [
+        0,
+        2
+       ],
+       -0.4
+      ],
+      [
+       "rx",
+       [
+        0
+       ],
+       0.4
+      ],
+      [
+       "rx",
+       [
+        1
+       ],
+       0.4
+      ],
+      [
+       "rx",
+       [
+        2
+       ],
+       0.4
+      ],
+      [
+       "measure",
+       [
+        0
+       ],
+       null
+      ],
+      [
+       "measure",
+       [
+        1
+       ],
+       null
+      ],
+      [
+       "measure",
+       [
+        2
+       ],
+       null
+      ]
+     ]
+    },
+    {
+     "id": "1",
+     "width": 3,
+     "operations": [
+      [
+       "h",
+       [
+        0
+       ],
+       null
+      ],
+      [
+       "h",
+       [
+        1
+       ],
+       null
+      ],
+      [
+       "h",
+       [
+        2
+       ],
+       null
+      ],
+      [
+       "rzz",
+       [
+        0,
+        1
+       ],
+       -0.85
+      ],
+      [
+       "rzz",
+       [
+        1,
+        2
+       ],
+       -0.85
+      ],
+      [
+       "rzz",
+       [
+        0,
+        2
+       ],
+       -0.85
+      ],
+      [
+       "rx",
+       [
+        0
+       ],
+       0.66
+      ],
+      [
+       "rx",
+       [
+        1
+       ],
+       0.66
+      ],
+      [
+       "rx",
+       [
+        2
+       ],
+       0.66
+      ],
+      [
+       "measure",
+       [
+        0
+       ],
+       null
+      ],
+      [
+       "measure",
+       [
+        1
+       ],
+       null
+      ],
+      [
+       "measure",
+       [
+        2
+       ],
+       null
+      ]
+     ]
+    },
+    {
+     "id": "2",
+     "width": 3,
+     "operations": [
+      [
+       "h",
+       [
+        0
+       ],
+       null
+      ],
+      [
+       "h",
+       [
+        1
+       ],
+       null
+      ],
+      [
+       "h",
+       [
+        2
+       ],
+       null
+      ],
+      [
+       "rzz",
+       [
+        0,
+        1
+       ],
+       -1.2
+      ],
+      [
+       "rzz",
+       [
+        1,
+        2
+       ],
+       -1.2
+      ],
+      [
+       "rzz",
+       [
+        0,
+        2
+       ],
+       -1.2
+      ],
+      [
+       "rx",
+       [
+        0
+       ],
+       0.36
+      ],
+      [
+       "rx",
+       [
+        1
+       ],
+       0.36
+      ],
+      [
+       "rx",
+       [
+        2
+       ],
+       0.36
+      ],
+      [
+       "measure",
+       [
+        0
+       ],
+       null
+      ],
+      [
+       "measure",
+       [
+        1
+       ],
+       null
+      ],
+      [
+       "measure",
+       [
+        2
+       ],
+       null
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "feedback": {
+  "entry": "initial",
+  "nodes": {
+   "initial": {
+    "kind": "batch",
+    "stage": "circuit",
+    "binding": "0",
+    "shots": 32,
+    "scores": [
+     0,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     0
+    ],
+    "save": "x",
+    "next": "direction",
+    "reduce": "sum"
+   },
+   "direction": {
+    "kind": "branch",
+    "left": "x",
+    "op": ">=",
+    "right": 45,
+    "yes": "probe1",
+    "no": "probe2"
+   },
+   "probe1": {
+    "kind": "batch",
+    "stage": "circuit",
+    "binding": "1",
+    "shots": 32,
+    "scores": [
+     0,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     0
+    ],
+    "save": "y",
+    "next": "update1",
+    "reduce": "sum"
+   },
+   "update1": {
+    "kind": "branch",
+    "left": "y",
+    "op": ">",
+    "right": "x",
+    "yes": "read1",
+    "no": "read0"
+   },
+   "probe2": {
+    "kind": "batch",
+    "stage": "circuit",
+    "binding": "2",
+    "shots": 32,
+    "scores": [
+     0,
+     2,
+     2,
+     2,
+     2,
+     2,
+     2,
+     0
+    ],
+    "save": "y",
+    "next": "update2",
+    "reduce": "sum"
+   },
+   "update2": {
+    "kind": "branch",
+    "left": "y",
+    "op": ">",
+    "right": "x",
+    "yes": "read2",
+    "no": "read0"
+   },
+   "read0": {
+    "kind": "batch",
+    "stage": "circuit",
+    "binding": "0",
+    "shots": 64,
+    "scores": [
+     7,
+     22,
+     21,
+     20,
+     19,
+     18,
+     17,
+     0
+    ],
+    "save": "answer",
+    "next": "assess",
+    "reduce": "max"
+   },
+   "read1": {
+    "kind": "batch",
+    "stage": "circuit",
+    "binding": "1",
+    "shots": 64,
+    "scores": [
+     7,
+     22,
+     21,
+     20,
+     19,
+     18,
+     17,
+     0
+    ],
+    "save": "answer",
+    "next": "assess",
+    "reduce": "max"
+   },
+   "read2": {
+    "kind": "batch",
+    "stage": "circuit",
+    "binding": "2",
+    "shots": 64,
+    "scores": [
+     7,
+     22,
+     21,
+     20,
+     19,
+     18,
+     17,
+     0
+    ],
+    "save": "answer",
+    "next": "assess",
+    "reduce": "max"
+   },
+   "assess": {
+    "kind": "branch",
+    "left": "answer",
+    "op": ">=",
+    "right": 16,
+    "yes": "optimal",
+    "no": "suboptimal"
+   },
+   "optimal": {
+    "kind": "finish",
+    "success": true,
+    "return": "answer"
+   },
+   "suboptimal": {
+    "kind": "finish",
+    "success": false,
+    "return": "answer"
+   }
+  },
+  "gate_noise": "local_depolarizing",
+  "readout_flip_probability": 0.0,
+  "minimum_task_success": 0.99
+ }
+}

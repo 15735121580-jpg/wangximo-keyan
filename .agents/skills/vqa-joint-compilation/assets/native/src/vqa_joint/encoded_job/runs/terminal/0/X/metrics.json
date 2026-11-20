@@ -1,0 +1,21 @@
+{
+  "n_data_atoms": 7,
+  "duration_us": 2279.332709052833,
+  "author_model_score": 0.8994695109524076,
+  "rydberg_pulses": 5,
+  "transport_batches": 16,
+  "geometry_check": "ZAC built-in scheduling/initial placement and adapter dependency checks; continuous AOD trajectories not independently certified",
+  "geometry_findings": {},
+  "profile": "trivial-dynamic-reuse",
+  "hardware_profile": "official comparison_technique on full_architecture",
+  "n_1q": 10,
+  "n_2q": 9,
+  "gate_count": 19,
+  "gate_dependency_depth": 7,
+  "unitary_operator_error": 5.047161767001236e-16,
+  "binding_check": "captured author transpilation and per-wire native occurrences",
+  "host": "zac",
+  "qiskit": "1.2.4",
+  "source_revision_target": "e5083362f99e6915f20c2bd0eaa88b6d1cdcecac",
+  "scope": "one bound logical unitary compiled on unencoded host hardware; no readout, QEC, decoding or adaptive-loop cost"
+}

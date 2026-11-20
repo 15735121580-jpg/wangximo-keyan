@@ -1,0 +1,89 @@
+{
+  "model": "two-round-feedback-vqe",
+  "input_hardware": {
+    "data_species": "Cs",
+    "service_species": "Rb",
+    "time_unit": "us",
+    "evidence": "synthetic",
+    "source": "User-supplied synthetic full-job branch times and noise; local model validation only. Prefix includes setup and first readout; suffix includes all remaining physical and online controller time. Geometry, collisions, native gates, mapping, reset scope and QEC legality have no independent device evidence."
+  },
+  "declared_limits": {
+    "max_peak_atoms": 10,
+    "max_depth": 13,
+    "max_model_flip_probability": "1/5",
+    "min_record_fidelity": "99/100"
+  },
+  "prediction_assumption": "independent symmetric flips on bound Z records",
+  "scope": "declared finite model catalogue",
+  "status": "optimal_in_declared_catalogue",
+  "certificate_rechecked": true,
+  "architectures": {
+    "forward-chain": {
+      "prefix_us_exact": "7/2",
+      "suffix_us_exact": {
+        "+": "7",
+        "-": "4"
+      },
+      "flip_per_readout_exact": "1/10",
+      "expected_us_exact": "48/5",
+      "peak_atoms_by_species": {
+        "Cs": 5,
+        "Rb": 5
+      },
+      "conservative_total_atoms": 10,
+      "max_branch_depth": 13,
+      "p_any_model_readout_flip_exact": "19/100",
+      "record_fidelity_approx": 0.9937352359916264,
+      "constraints_met": {
+        "peak_atoms": true,
+        "branch_depth": true,
+        "model_flip_probability": true,
+        "record_fidelity": true
+      }
+    },
+    "branch-local": {
+      "prefix_us_exact": "4",
+      "suffix_us_exact": {
+        "+": "4",
+        "-": "5"
+      },
+      "flip_per_readout_exact": "1/10",
+      "expected_us_exact": "83/10",
+      "peak_atoms_by_species": {
+        "Cs": 4,
+        "Rb": 4
+      },
+      "conservative_total_atoms": 8,
+      "max_branch_depth": 12,
+      "p_any_model_readout_flip_exact": "19/100",
+      "record_fidelity_approx": 0.9937352359916264,
+      "constraints_met": {
+        "peak_atoms": true,
+        "branch_depth": true,
+        "model_flip_probability": true,
+        "record_fidelity": true
+      }
+    }
+  },
+  "quantum_process_fidelity": null,
+  "device_validation": null,
+  "selected": "branch-local",
+  "ties": [
+    "branch-local"
+  ],
+  "seeded_model_replay": {
+    "seed": 27,
+    "readouts": [
+      -1,
+      1
+    ],
+    "parameters": [
+      "A",
+      "A"
+    ],
+    "choice": "A",
+    "empirical_energies_exact": {
+      "A": "0"
+    }
+  }
+}

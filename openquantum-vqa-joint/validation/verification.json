@@ -1,0 +1,41 @@
+{
+  "receipt_matches_contract": true,
+  "independent_optimal_certificate_verified": true,
+  "seeded_replay_verified": true,
+  "candidate_metrics": {
+    "forward-chain": {
+      "expected_us_exact": "48/5",
+      "expected_us": 9.6,
+      "positive_first_readout_probability_exact": "7/10"
+    },
+    "branch-local": {
+      "expected_us_exact": "83/10",
+      "expected_us": 8.3,
+      "positive_first_readout_probability_exact": "7/10"
+    }
+  },
+  "selected": "branch-local",
+  "time_saving_us_exact": "13/10",
+  "record_distribution_exact": {
+    "(1, 1)": "21/100",
+    "(1, -1)": "49/100",
+    "(-1, 1)": "21/100",
+    "(-1, -1)": "9/100"
+  },
+  "integer_sampling_scale": 100,
+  "integer_sampling_draw": 83,
+  "actual_readouts": [
+    -1,
+    1
+  ],
+  "actual_parameters": [
+    "A",
+    "A"
+  ],
+  "actual_choice": "A",
+  "actual_empirical_energies_exact": {
+    "A": "0"
+  },
+  "replayed_branch_duration_us_exact": "9",
+  "scope": "Local synthetic model; finite declared catalogue only"
+}

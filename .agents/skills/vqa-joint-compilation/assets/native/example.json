@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task_contract": "three-wire sparse fanout in the computational basis",
+  "stages": [{
+    "id": "readout",
+    "bindings": [{
+      "id": "theta0",
+      "width": 3,
+      "shots": 32,
+      "operations": [
+        ["ry", [2], 2.4],
+        ["cx", [2, 0], null],
+        ["measure", [0], null],
+        ["measure", [1], null],
+        ["measure", [2], null]
+      ]
+    }]
+  }]
+}

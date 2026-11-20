@@ -1,0 +1,4 @@
+interface:
+  display_name: "VQA Joint Compilation"
+  short_description: "Compare native and model-scoped variational compilers"
+  default_prompt: "Use $vqa-joint-compilation to select and replay a strategy for a variational job."

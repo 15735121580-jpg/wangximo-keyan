@@ -1,0 +1,616 @@
+{
+  "num_qubits": 14,
+  "global_phase": 0.0,
+  "gates": [
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        0
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        1
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        2
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        3
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        4
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        5
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        6
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        7
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        8
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        9
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        10
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        11
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        12
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 1,
+      "gate": "u2",
+      "qubits": [
+        13
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 4,
+      "gate": "cz",
+      "qubits": [
+        0,
+        2
+      ],
+      "params": []
+    },
+    {
+      "instruction": 4,
+      "gate": "cz",
+      "qubits": [
+        7,
+        9
+      ],
+      "params": []
+    },
+    {
+      "instruction": 9,
+      "gate": "cz",
+      "qubits": [
+        1,
+        2
+      ],
+      "params": []
+    },
+    {
+      "instruction": 9,
+      "gate": "cz",
+      "qubits": [
+        0,
+        4
+      ],
+      "params": []
+    },
+    {
+      "instruction": 9,
+      "gate": "cz",
+      "qubits": [
+        8,
+        9
+      ],
+      "params": []
+    },
+    {
+      "instruction": 9,
+      "gate": "cz",
+      "qubits": [
+        7,
+        11
+      ],
+      "params": []
+    },
+    {
+      "instruction": 10,
+      "gate": "u2",
+      "qubits": [
+        2
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 19,
+      "gate": "cz",
+      "qubits": [
+        3,
+        4
+      ],
+      "params": []
+    },
+    {
+      "instruction": 19,
+      "gate": "cz",
+      "qubits": [
+        1,
+        5
+      ],
+      "params": []
+    },
+    {
+      "instruction": 19,
+      "gate": "cz",
+      "qubits": [
+        0,
+        6
+      ],
+      "params": []
+    },
+    {
+      "instruction": 19,
+      "gate": "cz",
+      "qubits": [
+        2,
+        9
+      ],
+      "params": []
+    },
+    {
+      "instruction": 19,
+      "gate": "cz",
+      "qubits": [
+        10,
+        11
+      ],
+      "params": []
+    },
+    {
+      "instruction": 19,
+      "gate": "cz",
+      "qubits": [
+        8,
+        12
+      ],
+      "params": []
+    },
+    {
+      "instruction": 19,
+      "gate": "cz",
+      "qubits": [
+        7,
+        13
+      ],
+      "params": []
+    },
+    {
+      "instruction": 20,
+      "gate": "u2",
+      "qubits": [
+        4
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 20,
+      "gate": "u2",
+      "qubits": [
+        2
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 20,
+      "gate": "u2",
+      "qubits": [
+        9
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 20,
+      "gate": "u2",
+      "qubits": [
+        7
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 28,
+      "gate": "cz",
+      "qubits": [
+        3,
+        5
+      ],
+      "params": []
+    },
+    {
+      "instruction": 28,
+      "gate": "cz",
+      "qubits": [
+        1,
+        6
+      ],
+      "params": []
+    },
+    {
+      "instruction": 28,
+      "gate": "cz",
+      "qubits": [
+        4,
+        11
+      ],
+      "params": []
+    },
+    {
+      "instruction": 28,
+      "gate": "cz",
+      "qubits": [
+        10,
+        12
+      ],
+      "params": []
+    },
+    {
+      "instruction": 28,
+      "gate": "cz",
+      "qubits": [
+        8,
+        13
+      ],
+      "params": []
+    },
+    {
+      "instruction": 28,
+      "gate": "cz",
+      "qubits": [
+        0,
+        7
+      ],
+      "params": []
+    },
+    {
+      "instruction": 29,
+      "gate": "u2",
+      "qubits": [
+        5
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 29,
+      "gate": "u2",
+      "qubits": [
+        4
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 29,
+      "gate": "u2",
+      "qubits": [
+        11
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 29,
+      "gate": "u2",
+      "qubits": [
+        8
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 29,
+      "gate": "u2",
+      "qubits": [
+        0
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 29,
+      "gate": "u2",
+      "qubits": [
+        7
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 36,
+      "gate": "cz",
+      "qubits": [
+        3,
+        6
+      ],
+      "params": []
+    },
+    {
+      "instruction": 36,
+      "gate": "cz",
+      "qubits": [
+        5,
+        12
+      ],
+      "params": []
+    },
+    {
+      "instruction": 36,
+      "gate": "cz",
+      "qubits": [
+        10,
+        13
+      ],
+      "params": []
+    },
+    {
+      "instruction": 36,
+      "gate": "cz",
+      "qubits": [
+        1,
+        8
+      ],
+      "params": []
+    },
+    {
+      "instruction": 37,
+      "gate": "u2",
+      "qubits": [
+        6
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 37,
+      "gate": "u2",
+      "qubits": [
+        5
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 37,
+      "gate": "u2",
+      "qubits": [
+        12
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 37,
+      "gate": "u2",
+      "qubits": [
+        10
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 37,
+      "gate": "u2",
+      "qubits": [
+        1
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 37,
+      "gate": "u2",
+      "qubits": [
+        8
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 42,
+      "gate": "cz",
+      "qubits": [
+        6,
+        13
+      ],
+      "params": []
+    },
+    {
+      "instruction": 42,
+      "gate": "cz",
+      "qubits": [
+        3,
+        10
+      ],
+      "params": []
+    },
+    {
+      "instruction": 43,
+      "gate": "u2",
+      "qubits": [
+        6
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 43,
+      "gate": "u2",
+      "qubits": [
+        13
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 43,
+      "gate": "u2",
+      "qubits": [
+        3
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    },
+    {
+      "instruction": 43,
+      "gate": "u2",
+      "qubits": [
+        10
+      ],
+      "params": [
+        0.0,
+        3.141592653589793
+      ]
+    }
+  ]
+}

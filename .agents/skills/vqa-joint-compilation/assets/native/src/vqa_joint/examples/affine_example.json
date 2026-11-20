@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "task_contract": "H2 two-determinant XXYY readout at fixed input binding; return odd parity count in 16 shots",
+  "stages": [
+    {
+      "id": "h2",
+      "bindings": [
+        {
+          "id": "XXYY",
+          "width": 4,
+          "operations": [
+            [
+              "ry",
+              [
+                0
+              ],
+              0.73
+            ],
+            [
+              "cx",
+              [
+                0,
+                1
+              ],
+              null
+            ],
+            [
+              "cx",
+              [
+                0,
+                2
+              ],
+              null
+            ],
+            [
+              "cx",
+              [
+                0,
+                3
+              ],
+              null
+            ],
+            [
+              "x",
+              [
+                0
+              ],
+              null
+            ],
+            [
+              "x",
+              [
+                1
+              ],
+              null
+            ],
+            [
+              "h",
+              [
+                0
+              ],
+              null
+            ],
+            [
+              "h",
+              [
+                1
+              ],
+              null
+            ],
+            [
+              "sdg",
+              [
+                2
+              ],
+              null
+            ],
+            [
+              "h",
+              [
+                2
+              ],
+              null
+            ],
+            [
+              "sdg",
+              [
+                3
+              ],
+              null
+            ],
+            [
+              "h",
+              [
+                3
+              ],
+              null
+            ],
+            [
+              "measure",
+              [
+                0
+              ],
+              null
+            ],
+            [
+              "measure",
+              [
+                1
+              ],
+              null
+            ],
+            [
+              "measure",
+              [
+                2
+              ],
+              null
+            ],
+            [
+              "measure",
+              [
+                3
+              ],
+              null
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "feedback": {
+    "entry": "measure",
+    "nodes": {
+      "measure": {
+        "kind": "batch",
+        "stage": "h2",
+        "binding": "XXYY",
+        "shots": 16,
+        "scores": [
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "save": "odd",
+        "next": "threshold",
+        "reduce": "sum"
+      },
+      "threshold": {
+        "kind": "branch",
+        "left": "odd",
+        "op": ">=",
+        "right": 8,
+        "yes": "pass",
+        "no": "fail"
+      },
+      "pass": {
+        "kind": "finish",
+        "success": true,
+        "return": "odd"
+      },
+      "fail": {
+        "kind": "finish",
+        "success": false,
+        "return": "odd"
+      }
+    },
+    "gate_noise": "local_depolarizing",
+    "readout_flip_probability": 0.0,
+    "circuit_process_port": "affine_two_word",
+    "minimum_circuit_process_fidelity": 0.99
+  }
+}
