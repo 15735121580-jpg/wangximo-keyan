@@ -65,7 +65,7 @@ codex plugin marketplace add 15735121580-jpg/wangximo-keyan
 codex plugin add openquantum-vqa-harness@openquantum-research
 ```
 
-Open **Plugins → OpenQuantum Research → OpenQuantum VQA Harness** in Codex
+Open **Plugins → OpenQuantum Research → Compiler Harness** in Codex
 and start a fresh conversation. Invoke `$openquantum-vqa-harness` and ask it
 to run the bundled three-spin VQE demo. The launcher uses the bundled wheel,
 Python 3.12 and the existing OpenQuantum SDK. Its first start may download

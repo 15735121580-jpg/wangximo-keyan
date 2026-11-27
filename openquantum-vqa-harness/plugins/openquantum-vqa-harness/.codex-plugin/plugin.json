@@ -9,7 +9,7 @@
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",
   "interface": {
-    "displayName": "OpenQuantum VQA Harness",
+    "displayName": "Compiler Harness",
     "shortDescription": "Compile and verify complete variational quantum jobs.",
     "longDescription": "Compile a declared variational task through native lowering, readout and feedback, and inspect the optimized program, cost and verification receipt.",
     "developerName": "Ximo Wang and contributors",

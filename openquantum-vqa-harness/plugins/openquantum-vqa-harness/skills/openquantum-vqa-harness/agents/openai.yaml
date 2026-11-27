@@ -1,5 +1,5 @@
 interface:
-  display_name: "OpenQuantum VQA Harness"
+  display_name: "Compiler Harness"
   short_description: "Compile and verify variational quantum jobs"
   icon_large: "./assets/icon.svg"
   brand_color: "#5640A8"
