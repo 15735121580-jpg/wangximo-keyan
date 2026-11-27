@@ -1,0 +1,147 @@
+{
+  "name": "three-spin-parity-vqe",
+  "platform": {
+    "name": "OpenQuantum Qiskit local three-site device model",
+    "execution": "local simulation",
+    "encoding": "physical qubits; no active QEC"
+  },
+  "task": {
+    "n_qubits": 3,
+    "initial_bits": [
+      0,
+      0,
+      0
+    ],
+    "gates": [
+      {
+        "op": "ry",
+        "qubits": [
+          0
+        ],
+        "angle": "theta"
+      },
+      {
+        "op": "cx",
+        "qubits": [
+          0,
+          1
+        ]
+      },
+      {
+        "op": "cx",
+        "qubits": [
+          1,
+          2
+        ]
+      }
+    ],
+    "observables": [
+      {
+        "label": "energy",
+        "terms": [
+          {
+            "pauli": "ZII",
+            "coeff": -0.73
+          },
+          {
+            "pauli": "XXX",
+            "coeff": -0.41
+          },
+          {
+            "pauli": "IZZ",
+            "coeff": -0.12
+          }
+        ]
+      }
+    ]
+  },
+  "device": {
+    "n_qubits": 3,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "native": [
+      "rz",
+      "sx",
+      "x",
+      "cz"
+    ],
+    "gate_times_us": {
+      "rz": 0.0,
+      "sx": 0.04,
+      "x": 0.04,
+      "cz": 0.3
+    },
+    "reset_us": 1.0,
+    "readout_us": 1.0,
+    "gate_fidelities": {
+      "one_qubit": 0.9999,
+      "two_qubit": 0.999
+    }
+  },
+  "vqa": {
+    "parameter_grid": [
+      {
+        "theta": 0.0
+      },
+      {
+        "theta": 0.19634954084936207
+      },
+      {
+        "theta": 0.39269908169872414
+      },
+      {
+        "theta": 0.5890486225480862
+      },
+      {
+        "theta": 0.7853981633974483
+      },
+      {
+        "theta": 0.9817477042468103
+      },
+      {
+        "theta": 1.1780972450961724
+      },
+      {
+        "theta": 1.3744467859455345
+      },
+      {
+        "theta": 1.5707963267948966
+      },
+      {
+        "theta": 1.7671458676442586
+      },
+      {
+        "theta": 1.9634954084936207
+      },
+      {
+        "theta": 2.1598449493429825
+      },
+      {
+        "theta": 2.356194490192345
+      },
+      {
+        "theta": 2.552544031041707
+      },
+      {
+        "theta": 2.748893571891069
+      },
+      {
+        "theta": 2.945243112740431
+      },
+      {
+        "theta": 3.141592653589793
+      }
+    ],
+    "shots_per_term": 1024,
+    "terminal_shots_per_term": 4096,
+    "seed": 41
+  }
+}

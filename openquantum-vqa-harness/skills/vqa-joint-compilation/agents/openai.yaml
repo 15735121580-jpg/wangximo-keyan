@@ -1,0 +1,6 @@
+interface:
+  display_name: "OpenQuantum VQA Harness"
+  short_description: "Compile and verify variational quantum jobs"
+  icon_large: "./assets/icon.svg"
+  brand_color: "#5640A8"
+  default_prompt: "Use $openquantum-vqa-harness to run the bundled three-spin VQE demo and report the selected program and its costs."

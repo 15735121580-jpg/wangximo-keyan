@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openquantum-vqa-harness"
+version = "0.3.1"
+description = "Verified cross-stage compilation and execution of declared variational quantum jobs"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+authors = [{name = "Ximo Wang and contributors"}]
+dependencies = ["mcp==1.30.0"]
+
+[project.optional-dependencies]
+simulator = ["qiskit==2.5.2", "numpy==2.5.3", "scipy==1.18.1"]
+
+[project.scripts]
+vqa-joint = "vqa_harness.cli:main"
+vqa-joint-mcp = "vqa_harness.server:main"
+
+[project.urls]
+Source = "https://github.com/15735121580-jpg/wangximo-keyan/tree/main/openquantum-vqa-harness"
+
+[tool.setuptools.packages.find]
+where = ["src"]

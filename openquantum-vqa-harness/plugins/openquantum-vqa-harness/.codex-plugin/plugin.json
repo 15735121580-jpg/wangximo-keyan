@@ -1,0 +1,23 @@
+{
+  "name": "openquantum-vqa-harness",
+  "version": "0.3.1",
+  "description": "Compile and verify variational quantum jobs with OpenQuantum.",
+  "author": {"name": "Ximo Wang and contributors"},
+  "repository": "https://github.com/15735121580-jpg/wangximo-keyan",
+  "license": "MIT",
+  "keywords": ["OpenQuantum", "VQE", "quantum compilation"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "OpenQuantum VQA Harness",
+    "shortDescription": "Compile and verify complete variational quantum jobs.",
+    "longDescription": "Compile a declared variational task through native lowering, readout and feedback, and inspect the optimized program, cost and verification receipt.",
+    "developerName": "Ximo Wang and contributors",
+    "category": "Developer Tools",
+    "capabilities": ["Interactive"],
+    "defaultPrompt": ["Run the bundled three-spin VQE demo and report its verification and costs."],
+    "brandColor": "#5640A8",
+    "composerIcon": "./skills/openquantum-vqa-harness/assets/icon.svg",
+    "logo": "./skills/openquantum-vqa-harness/assets/icon.svg"
+  }
+}

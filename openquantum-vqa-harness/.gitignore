@@ -1,0 +1,21 @@
+# Python environments and generated packaging files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Generated runs and local configuration
+runs/
+.env
+.env.*
+!.env.example
+*.before-vqa-*
+.DS_Store
